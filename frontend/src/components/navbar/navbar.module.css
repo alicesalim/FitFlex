@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(131, 171, 40);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra discreta */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: auto;
+    border: 2px solid rgb(55, 57, 54);
+    border-radius: 50%;
+  }
+  
+  .list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .list li {
+    margin: 0 15px;
+  }
+  
+  .list li a {
+    text-decoration: none;
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .list li a:hover {
+    color: #0e2814; 
+  }
+
+  

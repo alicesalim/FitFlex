@@ -1,3 +1,9 @@
-.button{
-    background-color: blueviolet;
+.button {
+    display: inline-block;
+    background-color: rgb(131, 171, 40);
+    color: white;
+    text-align: center;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 20px;  
 }

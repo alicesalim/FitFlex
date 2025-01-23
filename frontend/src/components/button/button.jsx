@@ -1,10 +1,11 @@
+import React from "react"
 import style from "./button.module.css";
 
-function Button(){
+function Button({ text }){
     return(
-        <div>
-            <p className={style.button}>botao</p>
-        </div>
-    )
+        <button className={style.button}>
+            {text}
+        </button>
+    );
     
 }export default Button;
