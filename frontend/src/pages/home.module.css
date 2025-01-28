@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh; /* Garante centralização vertical */
+    height: 70vh; 
     background-color: #f8f9fa;
     padding: 20px;
 }
@@ -22,7 +22,7 @@
 
 /* Título */
 .display4 {
-    font-size: 3rem; /* Aumentado para se parecer com a segunda imagem */
+    font-size: 3rem; 
     font-weight: bold;
     color: #83AB28;
     margin-bottom: 15px;
@@ -32,16 +32,16 @@
 .pagtxt {
     font-size: 1.2rem;
     color: #6c757d;
-    max-width: 500px; /* Para evitar que o texto fique muito largo */
+    max-width: 500px; 
 }
 
 
 
 /* Imagem */
 .imgFluid {
-    border-radius: 20px; /* Mais arredondado */
-    width: 50%; /* Aumentado para se destacar mais */
-    max-width: 500px; /* Garante um tamanho equilibrado */
+    border-radius: 20px;
+    width: 50%; 
+    max-width: 500px; 
     height: auto;
     display: block;
 }
