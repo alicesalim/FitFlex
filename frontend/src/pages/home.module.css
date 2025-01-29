@@ -3,7 +3,7 @@
     flex-direction: column; /* Alinha os filhos verticalmente */
     justify-content: center;
     align-items: center;
-    height: 150vh; 
+    height: 190vh; 
     background-color: #f8f9fa;
     padding: 20px;
 }
@@ -74,10 +74,3 @@
     text-align: center;
 }
 
-.carouselImage {
-    width: 100%;
-    max-width: 800px; /* Defina uma largura máxima para as imagens */
-    height: 400px; /* Defina uma altura fixa para todas as imagens */
-    object-fit: cover; /* Garante que as imagens não distorçam */
-    border-radius: 10px; /* Para bordas arredondadas, se necessário */
-}
