@@ -1,16 +1,18 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import style from "../card/card.module.css";
+import Button from "../button/button";
 
-const HighlightCard = ({ image, title, text }) => {
-  return (
-    <Card style={{ width: '25rem' }} className="mx-2">
-      <Card.Img variant="top" src={image} alt={title} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{text}</Card.Text>
-      </Card.Body>
-    </Card>
-  );
-};
-
-export default HighlightCard;
+function Card({title, text, image }){
+    return(
+        <div className={style.container}>
+            <h1>{title}</h1>
+            <div className={style.text_image}>
+                <p>{text}</p>
+                <div className={style.image}>{image}</div>
+            </div>
+            <div className={style.botao}>
+                <Button />
+            </div>
+        </div>
+    )
+}export default Card;

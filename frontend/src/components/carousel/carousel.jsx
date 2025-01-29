@@ -1,25 +1,35 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
-import style from "./carousel.module.css"; 
 
-const RecipeCarousel = ({ items }) => {
+import React from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import style from '../carousel/carousel.module.css'; 
+
+const Carousel = ({ items }) => {
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+    arrows: true,
+  };
+
   return (
-    <Carousel>
+    <Slider {...settings}>
       {items.map((item, index) => (
-        <Carousel.Item key={index}>
+        <div key={index}>
           <img
-            className={`d-block w-100 ${style.carouselImage}`}
             src={item.image}
             alt={item.alt}
+            className={style.carousel_image}
           />
-          <Carousel.Caption>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        </div>
       ))}
-    </Carousel>
+    </Slider>
   );
 };
 
-export default RecipeCarousel;
+export default Carousel;
+
+

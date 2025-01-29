@@ -1,7 +1,7 @@
-.carouselImage {
-    width: 100%;
-    max-width: 800px; 
-    height: 400px;
-    object-fit: cover; 
-    border-radius: 10px;
-}
+.carousel_image {
+    width: 30%;
+    height: auto;
+    object-fit: cover; /* Para ajustar as imagens ao tamanho sem distorcer */
+    border-radius: 20px;
+  }
+  

@@ -6,7 +6,7 @@ function Navbar(){
         <header className={style.container}>
             <div className={style.logo}>
                 <Link to="/">
-                    <img src="/img/logofitflex.PNG" alt="logo" className={style.imagem}/>
+                    <img src="/images/logofitflex.PNG" alt="logo" className={style.imagem}/>
                 </Link>
             </div>
             <nav>
