@@ -7,6 +7,10 @@
     width: 100vw; /* Garante que ocupe toda a largura da tela */
     text-align: center; /* Garante que o texto fique centralizado */
 }
+.container h2 {
+    display: flex; 
+    justify-content: center;
+}
 
   
 .container {

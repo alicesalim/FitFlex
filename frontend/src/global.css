@@ -12,6 +12,10 @@ h1 {
 
 h2, h3, h4, h5, h6{
     color: rgb(131, 171, 40);
+    /*
+    display: flex; 
+    justify-content: center;
+    */
 }
 
 p {

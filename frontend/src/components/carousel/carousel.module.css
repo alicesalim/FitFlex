@@ -1,7 +1,8 @@
 .carousel_image {
     width: 30%;
     height: auto;
-    object-fit: cover; /* Para ajustar as imagens ao tamanho sem distorcer */
+    object-fit: cover; 
     border-radius: 20px;
-  }
-  
+    margin: 0 auto; /* Centralizar a imagem */
+    display: block; /* Garante que a margem auto funcione */
+}
