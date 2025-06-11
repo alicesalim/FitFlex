@@ -1,0 +1,113 @@
+
+body {
+  background: #f3f6fa; /* tom claro, mas não branco puro */
+}
+
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 32px 28px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 24px;
+  color: #222;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border: 1.5px solid #86C019;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  padding: 10px 0;
+  background: #86C019;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: #6ea015;
+}
+
+.loading {
+  margin-top: 10px;
+  color: #86C019;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.message {
+  margin-top: 18px;
+  text-align: center;
+  color: #c0392b;
+  font-size: 1rem;
+}
+
+.loader {
+  position: relative;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 40px 60px 30px 60px;
+  border-color: #3760C9 #96DDFC #96DDFC #36BBF7;
+  animation: envFloating 1s ease-in infinite alternate;
+  margin: 48px auto 0 auto; /* aumente o margin-top para abaixar */
+  width: 0;
+  height: 0;
+  z-index: 2;
+}
+
+.loader:after{
+  content:"";
+  position: absolute;
+  right: 62px;
+  top: -40px;
+  height: 70px;
+  width: 50px;
+  background-image:
+            linear-gradient(#000000 45px, transparent 0),
+            linear-gradient(#000000 45px, transparent 0),
+            linear-gradient(#000000 45px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 30px 4px;
+  background-position: 0px 11px , 8px 35px, 0px 60px;
+  animation: envDropping 0.75s linear infinite;
+}
+
+@keyframes envFloating {
+  0% { transform: translate(-2px, -5px)}
+  100% { transform: translate(0, 5px)}
+}
+
+@keyframes envDropping {
+  0% {background-position: 100px 11px , 115px 35px, 105px 60px; opacity: 1;}
+  50% {background-position: 0px 11px , 20px 35px, 5px 60px; }
+  60% {background-position: -30px 11px , 0px 35px, -10px 60px; }
+  75%, 100% {background-position: -30px 11px , -30px 35px, -30px 60px; opacity: 0;}
+}
+      

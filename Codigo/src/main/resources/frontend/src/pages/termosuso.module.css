@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa 100% da altura da viewport */
+  padding: 2rem;
+
+}
+
+.content {
+  margin-top: 100px;
+  max-width: 800px;
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #86C019;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}

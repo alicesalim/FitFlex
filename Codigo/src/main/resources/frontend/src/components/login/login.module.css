@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  min-height: 70vh;
+  width: 90vw;
+  background: white;
+  padding: 64px;
+  padding-top: 84px;
+  font-family: 'Inter', sans-serif;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  font-weight:900;
+}
+
+.container .inputfield {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px auto;
+}
+
+.inputfield input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 16px;
+  color: black;
+  padding: 20px 45px 20px 25px;
+}
+
+.inputfield input::placeholder {
+  color: #616161;
+}
+
+
+.container .recallforget {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.recallforget label input {
+  color: #d9d9d9;
+  accent-color: black;
+  margin-right: 4px;
+}
+
+
+.recallforget a:hover {
+  text-decoration: underline;
+}
+
+.container button {
+  width: 100%;
+  height: 50px;
+  background: #86C019;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  text-shadow: none;
+}
+.button{
+  width: 100%;
+  margin-top: 6px;
+}
+
+.container .signuplink {
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.signuplink p {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: black;
+  text-decoration: none;
+}
+
+.signuplink p a, .recallforget a  {
+  color: #86C019;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signuplink p a:hover {
+  text-decoration: underline;
+}
+
+.recallforget
+{
+  color: #616161;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10vh 5vw;
+}
+
+.imageContainer {
+  width: 30vw;
+  height: 80vh;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-end-start-radius: 16px;
+  border-top-left-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  min-height: 70vh;
+  width: 30vw;
+  height: 80vh;
+  background: white;
+  padding: 64px;
+  padding-top: 84px;
+  font-family: 'Inter', sans-serif;
+  border-end-end-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 700;
+}
+
+/* Restante do CSS mantém o mesmo */

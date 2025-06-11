@@ -1,0 +1,132 @@
+.containerLogo {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    margin: 20px;
+}
+.containerLogo img{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerLogo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+.hamburguer
+{
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #0D4E3C;
+    cursor: pointer;
+    width: 30px;
+
+}
+.hamburguer::before,
+.hamburguer::after
+{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #0D4E3C;
+    margin-top: 5px;
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0F0;
+    padding: 1rem;
+    height: 70px;
+    padding: 10px 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navLinks {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.link {
+    color: #0D4E3C;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease;
+}
+  
+  .active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+.link:hover {
+    transform: scale(1.05);
+}
+
+.imagem {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+.imagem:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .navbar{
+        padding: 0;
+        padding: 2vh 5vw;
+    }
+    .hamburguer{
+        display: block;
+        z-index: 2;
+    }
+    .navLinks {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #F0F0F0;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+        pointer-events: none;
+    }
+    .link{
+        gap: 0;
+        padding: 0;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .containerLogo{
+        height: 30px;
+        width: 30px;
+    }
+    .navbar.active .navLinks{
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+}

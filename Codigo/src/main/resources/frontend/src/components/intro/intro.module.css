@@ -1,0 +1,204 @@
+.green {
+    color: #86C019;
+}
+
+.container {
+    padding-top: 64px;
+}
+.title{
+    font-size: 5rem;
+    color: #212121;
+}
+
+.text {
+    margin: 50px 50px 0px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.subtitle {
+    color: #616161;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-weight: bold;
+}
+
+.cardimage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 58vh;
+    /* Ajuste conforme necessário */
+    width: 100%;
+    overflow: hidden;
+}
+
+.bgRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80vh;
+    /* Reduzi para não ocupar toda a largura */
+    height: 80vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: 1;
+    opacity: 0.8;
+    /* Ajuste conforme necessário */
+    animation-delay: 0.5s;
+    /* Delay para animação alternada */
+    animation: ondaFadeInR-L 1.3s cubic-bezier(0.23, 1, 0.32, 1) 0.1s forwards;
+    right: 0;
+}
+
+.bgLeft {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80vh;
+    /* Reduzi para não ocupar toda a largura */
+    height: 80vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.8;
+    /* Ajuste conforme necessário */
+    animation: ondaFadeInL-R 1.3s cubic-bezier(0.23, 1, 0.32, 1) 0.1s forwards;
+    left: 0;
+}
+
+.back {
+    background-color: #F0F0F0;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: auto 0px auto;
+    gap: 48px;
+    width: auto;
+    height: 35vh;
+    background: #FFFFFF;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    padding: 20px 5vw;
+    text-align: center;
+}
+
+.item:not(:last-child) {
+    border-right: 2px solid #e0e0e0;
+}
+
+.circle {
+    width: 48px;
+    height: 48px;
+    background-color: #f4e3dc;
+    color: #c86c4d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.texto {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #616161;
+}
+
+.button {
+    background: linear-gradient(90deg, #0D4E3C 10.74%, #B0CA64 100.41%);
+    padding: 12px 30px;
+    border-radius: 12px;
+    color: white;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 40px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+
+}
+
+.buttonText {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+@keyframes ondaFadeInL-R {
+    0% {
+        opacity: 0;
+        transform: translateX(80px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes ondaFadeInR-L {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(10px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+
+.carditem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background: #FFFFFF;
+    color: #616161;
+}

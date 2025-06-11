@@ -1,0 +1,18 @@
+.linha {
+    border: none;
+    height: 5px;
+    background: linear-gradient(to right, #0D4E3C, #86C019);
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 80px;
+    border-radius: 5px;
+}
+.title{
+    color: #0D4E3C;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+.container{
+    display: flex;
+    margin-left:80px ;
+}

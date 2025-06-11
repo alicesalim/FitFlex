@@ -1,0 +1,235 @@
+.button{
+    margin: 50px auto;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  background-color: transparent;
+}
+
+.contentContainer {
+  max-width: 1680px;
+  margin: 0 auto;
+  background-color: transparent;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.resultsContainer {
+  padding: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #0E4E3C;
+  border-bottom: 2px solid #2497E4;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #32C15F;
+}
+
+.recipeList {
+  list-style-position: inside;
+  padding-left: 1.5rem;
+  counter-reset: recipe-counter;
+}
+
+.recipeItem {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  counter-increment: recipe-counter;
+}
+
+.recipeItem::marker {
+  color: #0D4E3C;
+  font-weight: bold;
+}
+
+.recipeItem:hover {
+  transform: translateX(8px);
+  background-color: rgba(50, 193, 95, 0.05);
+}
+
+.recipeLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.recipeLink:hover {
+  color: #2497E4;
+}
+
+.recipeName {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.recipeBadges {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.badge {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.timeBadge {
+  background-color: #edb125;
+  color: #001c54;
+}
+
+.caloryBadge {
+  background-color: #0E4E3C;
+  color: white;
+}
+
+.loadingContainer,
+.errorContainer,
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+  text-align: center;
+}
+
+.loadingText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2497E4;
+}
+
+.errorText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #32C15F;
+}
+
+.emptyText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0E4E3C;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .headerContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .resultsContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .recipeLink {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .recipeBadges {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+.recipeCard {
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.recipeLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.recipeImageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 56%; /* proporção 3:2 */
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.recipeOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(40,40,40,0.55);
+  color: transparent;
+  padding: 24px 0 16px 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipeName {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.recipeCard:hover .recipeImageContainer {
+  transform: scale(1.04);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+/* Efeito de hover no overlay */
+.recipeCard:hover .recipeOverlay {
+  background: rgba(40,40,40,0.70);
+  transition: background 0.3s;
+}

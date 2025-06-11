@@ -1,0 +1,326 @@
+.container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 30px;
+  margin: 20px 100px;
+  gap: 30px;
+  padding-top: 64px;
+}
+
+.info {
+  display: flex;
+
+}
+
+.senhaContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #2374b9;
+  transition: color 0.3s ease;
+}
+
+.iconButton:hover {
+  color: #de5e36;
+}
+
+.imagem {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0D4E3C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+}
+
+.info h1 {
+  font-size: 36px;
+  font-weight: bolder;
+  line-height: 1;
+  color: #212121
+}
+
+.editButton {
+  font-size: 24px;
+  cursor: pointer;
+  vertical-align: center;
+  padding-bottom: 10px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent h2 {
+  color: #0D4E3C;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.saveButton {
+  background-color: #9BC53F;
+  color: #fff;
+}
+
+.saveButton:hover {
+  background-color: #001c54;
+  transform: scale(1.02);
+}
+
+.saveButton:disabled {
+  background-color: #b2b2b2;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}
+
+.cancelButton {
+  background-color: #de5e36;
+  color: #fff;
+}
+
+.cancelButton:hover {
+  background-color: #c24a29;
+  transform: scale(1.02);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b2b2b2;
+  font-style: normal;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2374b9;
+  box-shadow: 0 0 5px rgba(35, 116, 185, 0.4);
+  background-color: #fff;
+}
+
+label {
+  font-weight: 600;
+  color: #001c54;
+  display: block;
+  margin-right: 15px;
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.saveButton,
+.cancelButton {
+  min-width: 120px;
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.imageUploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.currentImageContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.imagePreview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0D4E3C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.imageActions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center; 
+  align-items: center;
+  top: 120px;
+
+}
+
+.imageUploadLabel {
+  background-color: #86C019;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0px;
+}
+
+.imageUploadLabel:hover {
+  background-color: #4A872B;
+  transform: scale(1.05);
+}
+
+.imageUploadLabel span {
+  display: none;
+}
+
+.imageRemoveButton {
+  background-color: #C67552;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.imageRemoveButton:hover {
+  background-color: #c24a29;
+  transform: scale(1.05);
+}
+
+.fileInput {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.uploadHint {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.removalHint {
+  font-size: 12px;
+  color: #de5e36;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.error {
+  color: #de5e36;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: rgba(222, 94, 54, 0.1);
+  font-weight: 500;
+  margin: 10px 0 15px;
+  text-align: center;
+  border-left: 4px solid #de5e36;
+  line-height: 1.4;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #4e4e4e;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  transition: color 0.3s ease;
+  padding: 10px 0px;
+  font-weight: bold;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover,
+.deleteButton:hover {
+  transform: scale(1.05);
+}

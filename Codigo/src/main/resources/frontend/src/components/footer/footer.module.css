@@ -1,0 +1,44 @@
+.footerContainer {
+  width: 100%;
+  background: #f8fafc;
+  border-top: 1px solid #e3e8ee;
+  padding: 18px 0;
+  margin-top: auto;
+  background-color: #f8fafc; 
+  z-index: 999; 
+  position: relative;
+}
+
+.footerContent {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.termosLink {
+  color: #86C019;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.termosLink:hover {
+  color: #6ea015;
+  text-decoration: underline;
+}
+
+.termosLink {
+  margin-left: 0.5rem; 
+  text-decoration: underline; 
+}
+
+
+@media (max-width: 600px) {
+  .footerContent {
+    font-size: 12px;
+  }
+}

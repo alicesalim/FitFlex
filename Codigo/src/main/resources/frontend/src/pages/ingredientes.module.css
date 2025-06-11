@@ -1,0 +1,389 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  padding-top: 64px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: #001c54;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.addButton {
+  background-color: #2374b9;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.addButton:hover {
+  background-color: #001c54;
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.searchContainer {
+  margin-bottom: 2rem;
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b2b2b2;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #b2b2b2;
+  border-radius: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #2374b9;
+  box-shadow: 0 0 0 2px rgba(35, 116, 185, 0.2);
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  min-width: 1000px;
+}
+
+.table th {
+  background-color: #2374b9;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #b2b2b2;
+  color: #001c54;
+  white-space: nowrap;
+}
+
+.table tr:hover {
+  background-color: rgba(35, 116, 185, 0.05);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton, .deleteButton {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton {
+  background-color: #edb125;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #de5e36;
+  color: white;
+}
+
+.editButton:hover, .deleteButton:hover {
+  transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeader h2 {
+  color: #001c54;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #b2b2b2;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #001c54;
+  transform: scale(1.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formSection {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e9ecef;
+}
+
+.sectionTitle {
+  color: #001c54;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.nutritionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: #001c54;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+}
+
+.input, .select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #b2b2b2;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.input:focus, .select:focus {
+  outline: none;
+  border-color: #2374b9;
+  box-shadow: 0 0 0 2px rgba(35, 116, 185, 0.2);
+}
+
+.input::placeholder {
+  color: #b2b2b2;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancelButton, .saveButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.cancelButton {
+  background: none;
+  border: 2px solid #b2b2b2;
+  color: #001c54;
+}
+
+.saveButton {
+  background-color: #2374b9;
+  border: none;
+  color: white;
+}
+
+.cancelButton:hover {
+  border-color: #001c54;
+  background-color: rgba(0, 28, 84, 0.05);
+}
+
+.saveButton:hover {
+  background-color: #001c54;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .tableContainer {
+    margin: 1rem 0;
+  }
+
+  .table th, .table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+  }
+
+  .cancelButton, .saveButton {
+    width: 100%;
+  }
+
+  .nutritionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formSection {
+    padding: 1rem;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: #2374b9;
+}
+
+.noData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+.noData p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.addFirstButton {
+  background-color: #2374b9;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.addFirstButton:hover {
+  background-color: #001c54;
+  transform: translateY(-2px);
+} 
