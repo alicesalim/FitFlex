@@ -1,5 +1,5 @@
 // Serviço para gerenciar chamadas à API relacionadas aos ingredientes
-const API_URL = 'http://localhost:4567';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4567';
 
 // Buscar todos os ingredientes
 export const getIngredientes = async () => {

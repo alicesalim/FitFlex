@@ -1,5 +1,5 @@
 // Serviço para gerenciar chamadas à API relacionadas às receitas
-const API_URL = 'http://localhost:4567';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4567';
 
 // Buscar receita por ID
 export const getReceitaPorId = async (id) => {
