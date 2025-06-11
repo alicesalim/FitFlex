@@ -4,5 +4,8 @@
   ],
   "env": {
     "REACT_APP_API_URL": "https://fitflex-backend.onrender.com"
-  }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app"
 } 
