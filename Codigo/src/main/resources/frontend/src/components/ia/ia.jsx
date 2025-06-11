@@ -89,7 +89,7 @@ const Card = () => {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch("http://localhost:4567/analisar-imagem", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4567"}/analisar-imagem`, {
         method: "POST",
         body: formData,
       });

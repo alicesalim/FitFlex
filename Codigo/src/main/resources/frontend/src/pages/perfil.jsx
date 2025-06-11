@@ -6,7 +6,7 @@ import styles from "../pages/perfil.module.css";
 import { getReceitasUsuario } from "../services/favoritarService";
 import { useAuth } from "../contexts/AuthContext";
 
-const API_URL = "http://localhost:4567"; 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Perfil = () => {
   const { currentUser } = useAuth();

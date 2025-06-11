@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./solicitar.module.css";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 export default function Solicitar() {
   const [email, setEmail] = useState("");
@@ -11,7 +14,7 @@ export default function Solicitar() {
     setMensagem("");
     setLoading(true);
     try {
-      const resp = await fetch("http://localhost:4567/usuario/recuperar-senha", {
+      const resp = await fetch(`${API_URL}/usuario/recuperar-senha`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAuth } from '../../contexts/AuthContext';
+import "./login.css";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,9 +17,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError("");
+    setIsLoading(true);
 
     const credentials = {
       email: username,
@@ -24,7 +30,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:4567/usuario/login", {
+      const response = await fetch(`${API_URL}/usuario/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,6 +62,8 @@ const Login = () => {
     } catch (err) {
       setError("Erro de rede ou servidor.");
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 

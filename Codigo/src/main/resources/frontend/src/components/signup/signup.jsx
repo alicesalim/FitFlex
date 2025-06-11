@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from './signup.module.css';
 import { Link, useNavigate } from "react-router-dom";
+import "./signup.css";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Signup = () => {
   const [nome, setNome] = useState(""); // se seu backend usa username, ok, se não, adapte.
@@ -88,7 +91,7 @@ const Signup = () => {
         imagemBase64: base64Image,
       };
 
-      const response = await fetch("http://localhost:4567/usuario", {
+      const response = await fetch(`${API_URL}/usuario`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

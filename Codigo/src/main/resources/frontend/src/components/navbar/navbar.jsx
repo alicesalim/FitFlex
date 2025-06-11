@@ -6,6 +6,11 @@ import { useAuth } from '../../contexts/AuthContext';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { FaHome, FaSearch, FaUser, FaHeart, FaBook, FaSignOutAlt } from "react-icons/fa";
+import { AuthContext } from "../../contexts/AuthContext";
+import "./navbar.css";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Navbar = () => {
   const { currentUser, isAdmin } = useAuth();
@@ -38,7 +43,7 @@ const Navbar = () => {
     async function fetchUsuario() {
       try {
         setCarregando(true);
-        const response = await fetch(`http://localhost:4567/usuario/${currentUser.id}`);
+        const response = await fetch(`${API_URL}/usuario/${currentUser.id}`);
         if (!response.ok) {
           setErro("Usuário não encontrado.");
           return;
@@ -78,6 +83,21 @@ const Navbar = () => {
       return null;
     }
   };
+
+  const handleLogout = async () => {
+    try {
+      setIsLoading(true);
+      if (currentUser && currentUser.id) {
+        const response = await fetch(`${API_URL}/usuario/${currentUser.id}`);
+        // ... existing code ...
+      }
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.containerLogo}>

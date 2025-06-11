@@ -18,7 +18,7 @@ export const getReceitaPorId = async (id) => {
 // Adicionar receita à usuario
 export async function adicionarReceitaUsuario(receitaId, usuarioId) {
   console.log("Dados enviados para o backend:", { receitaId, usuarioId });
-  const response = await fetch("http://localhost:4567/avaliar", {
+  const response = await fetch(`${API_URL}/avaliar`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

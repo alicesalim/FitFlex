@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./profile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faSave, faTimes, faCamera, faTrash, faSignOutAlt, faGear } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext';
+import "./profile.css";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Profile = () => {
   const { currentUser, logout } = useAuth();
@@ -40,7 +43,7 @@ const Profile = () => {
     async function fetchUsuario() {
       try {
         setCarregando(true);
-        const response = await fetch(`http://localhost:4567/usuario/${id}`);
+        const response = await fetch(`${API_URL}/usuario/${id}`);
         if (!response.ok) {
           setErro("Usuário não encontrado.");
           return;
@@ -134,7 +137,7 @@ const Profile = () => {
     if (!confirmacao) return;
 
     try {
-      const response = await fetch(`http://localhost:4567/usuario/${id}`, {
+      const response = await fetch(`${API_URL}/usuario/${id}`, {
         method: "DELETE",
       });
 
@@ -177,7 +180,7 @@ const Profile = () => {
         imagemBase64: removerFoto ? "" : base64Image,
       };
 
-      const response = await fetch(`http://localhost:4567/usuario/${id}`, {
+      const response = await fetch(`${API_URL}/usuario/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
