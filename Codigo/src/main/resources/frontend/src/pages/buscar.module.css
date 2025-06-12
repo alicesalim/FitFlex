@@ -220,6 +220,21 @@
   justify-content: flex-end;
 }
 
+@media (max-width: 600px) {
+  .trendingTag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    margin-left: 0.5rem;
+    min-width: unset;         /* Remove o min-width fixo */
+    max-width: 80px;          /* Limita o tamanho máximo */
+    text-align: center;
+    word-break: break-word;   /* Permite quebra de palavra */
+    white-space: normal;      /* Permite múltiplas linhas */
+    display: inline-block;    /* Garante comportamento de bloco */
+    line-height: 1.2;         /* Melhora a leitura em múltiplas linhas */
+  }
+}
+
 .modalOverlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
