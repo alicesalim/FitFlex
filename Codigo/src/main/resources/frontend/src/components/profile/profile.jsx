@@ -346,7 +346,7 @@ const Profile = () => {
                 style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
               />
             </div>
-            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>Add commentMore actions
+            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>\
               <label>Senha:</label>
               <input
                 type={mostrarSenha ? "text" : "password"}
