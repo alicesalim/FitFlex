@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from './signup.module.css';
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Signup = () => {
-  const [nome, setNome] = useState(""); // se seu backend usa username, ok, se não, adapte.
+  const [nome, setNome] = useState(""); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -13,10 +15,11 @@ const Signup = () => {
   const [imagemPreview, setImagemPreview] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPasswords, setShowPasswords] = useState(false);
   const navigate = useNavigate();
   
   // Limite de tamanho da imagem (500KB)
-  const MAX_FILE_SIZE = 500 * 1024; 
+  const MAX_FILE_SIZE = 500 * 1024;
 
   const toBase64 = file =>
     new Promise((resolve, reject) => {
@@ -67,6 +70,11 @@ const Signup = () => {
     try {
       if (password !== confirmPassword) {
         setError("As senhas não coincidem.");
+        setIsLoading(false);
+        return;
+      }
+      if (password.length < 6) {
+        setError("A senha deve ter pelo menos 6 caracteres.");
         setIsLoading(false);
         return;
       }
@@ -151,27 +159,7 @@ const Signup = () => {
             />
           </div>
 
-          <div className={styles.inputfield}>
-            <input
-              type="password"
-              placeholder="Senha"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className={styles.inputfield}>
-            <input
-              type="password"
-              placeholder="Confirme sua senha"
-              required
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-
-          <div className={styles.imageUploadContainer}>
+          <div className={styles.imageUploadContainer}>Add commentMore actions
             <label className={styles.imageUploadLabel}>
               Foto de perfil (máx. 500KB)
               <input
@@ -181,17 +169,59 @@ const Signup = () => {
                 className={styles.fileInput}
               />
             </label>
-            
+
             {imagemPreview && (
               <div className={styles.imagePreview}>
                 <img src={imagemPreview} alt="Prévia da imagem" />
               </div>
             )}
           </div>
-          
-          <button 
-            type="submit" 
-            className={styles.button} 
+
+          <div className={styles.inputfield} style={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type={showPasswords ? "text" : "password"}
+              placeholder="Senha"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{ flexGrow: 1 }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPasswords(!showPasswords)}
+              className={styles.button}
+              style={{
+                marginLeft: "10px",
+                backgroundColor: "transparent",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                fontSize: "1.1rem",
+                color: "#555",
+                width: "20px",
+                height: "20px",
+              }}
+              aria-label={showPasswords ? "Ocultar senhas" : "Mostrar senhas"}
+              title={showPasswords ? "Ocultar senhas" : "Mostrar senhas"}
+            >
+              <FontAwesomeIcon icon={showPasswords ? faEyeSlash : faEye} />
+            </button>
+          </div>
+
+          <div className={styles.inputfield}>
+            <input
+              type={showPasswords ? "text" : "password"}
+              placeholder="Confirme sua senha"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              style={{ flexGrow: 1 }}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className={styles.button}
             disabled={isLoading}
           >
             {isLoading ? "Cadastrando..." : "Cadastrar"}
