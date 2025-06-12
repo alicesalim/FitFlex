@@ -12,7 +12,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 const Navbar = () => {
-  const { currentUser, isAdmin } = useAuth();
+  const { currentUser, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   const [imagemPerfil, setImagemPerfil] = useState(null);
   const [usuario, setUsuario] = useState(null);
@@ -83,18 +83,9 @@ const Navbar = () => {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      setIsLoading(true);
-      if (currentUser && currentUser.id) {
-        const response = await fetch(`${API_URL}/usuario/${currentUser.id}`);
-        // ... existing code ...
-      }
-    } catch (error) {
-      console.error("Erro ao fazer logout:", error);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   return (

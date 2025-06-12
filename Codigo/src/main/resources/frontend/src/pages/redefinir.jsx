@@ -6,6 +6,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
 export default function Redefinir() {
   const [novaSenha, setNovaSenha] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [error, setError] = useState("");
   const [status, setStatus] = useState("idle");
