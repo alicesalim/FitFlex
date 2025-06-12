@@ -154,6 +154,31 @@ const Profile = () => {
     }
   };
 
+    const validarSenha = async (senha) => {
+    if (!senha) {
+      setSenhaCorreta(false);
+      setErroSenha("");
+      return;
+    }
+    try {
+      const response = await fetch(`${API_URL}/usuario/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailEdit, senha }),
+      });
+      if (response.ok) {
+        setSenhaCorreta(true);
+        setErroSenha("");
+      } else {
+        setSenhaCorreta(false);
+        setErroSenha("Senha incorreta");
+      }
+    } catch {
+      setSenhaCorreta(false);
+      setErroSenha("Senha incorreta");
+    }
+  };
+
   const handleSalvar = async () => {
     setIsLoading(true);
     setErro("");
@@ -237,6 +262,8 @@ const Profile = () => {
     setRemoverFoto(false);
     setModoEdicao(false);
     setErro("");
+    setErroSenha("");
+    setSenhaCorreta(false);
   };
 
   if (carregando) {
@@ -255,7 +282,7 @@ const Profile = () => {
     );
   }
 
-  return (
+   return (
     <div className={styles.container}>
       {erro && <div className={styles.error}>{erro}</div>}
 
@@ -282,7 +309,6 @@ const Profile = () => {
         >
           <FontAwesomeIcon icon={faGear} />
         </button>
-
       </div>
 
       {modoEdicao && (
@@ -328,7 +354,7 @@ const Profile = () => {
               {removerFoto && <p className={styles.removalHint}>A foto será removida ao salvar</p>}
             </div>
 
-            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>
+            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center"}}>
               <label>Nome:</label>
               <input
                 type="text"
@@ -346,12 +372,16 @@ const Profile = () => {
                 style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
               />
             </div>
-            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>\
+
+            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>
               <label>Senha:</label>
               <input
                 type={mostrarSenha ? "text" : "password"}
                 value={senhaEdit}
-                onChange={(e) => setSenhaEdit(e.target.value)}
+                onChange={e => {
+                  setSenhaEdit(e.target.value);
+                  validarSenha(e.target.value);
+                }}
                 placeholder="Digite sua senha para confirmar"
                 required
                 style={{ marginRight: "8px" }}
@@ -370,7 +400,25 @@ const Profile = () => {
               >
                 <FontAwesomeIcon icon={mostrarSenha ? faEyeSlash : faEye} />
               </button>
+          
+              {!senhaCorreta && senhaEdit && (
+                <a
+                  href="/recuperar-senha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#007bff",
+                    marginLeft: 12,
+                    fontSize: 13,
+                    textDecoration: "underline",
+                    cursor: "pointer"
+                  }}
+                >
+                  Esqueceu a senha?
+                </a>
+              )}
             </div>
+
             <button onClick={handleLogout} className={styles.logoutButton}>
               <FontAwesomeIcon icon={faSignOutAlt} size="1x" color="#616161" /> Sair
             </button>
@@ -386,15 +434,15 @@ const Profile = () => {
               <button
                 onClick={handleSalvar}
                 className={styles.saveButton}
-                disabled={isLoading}
+                disabled={isLoading || !senhaCorreta}
                 style={{
                   marginRight: "10px",
                   padding: "10px 20px",
-                  backgroundColor: isLoading ? "#b2b2b2" : "#86C019",
+                  backgroundColor: isLoading || !senhaCorreta ? "#b2b2b2" : "#86C019",
                   color: "#fff",
                   border: "none",
                   borderRadius: "5px",
-                  cursor: isLoading ? "not-allowed" : "pointer",
+                  cursor: isLoading || !senhaCorreta ? "not-allowed" : "pointer",
                   transition: "all 0.3s ease",
                 }}
               >
