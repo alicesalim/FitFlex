@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faSave, faTimes, faCamera, faTrash, faSignOutAlt, faGear } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext';
-import "./profile.css";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 

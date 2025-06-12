@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAuth } from '../../contexts/AuthContext';
-import "./login.css";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
