@@ -21,17 +21,13 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [removerFoto, setRemoverFoto] = useState(false);
   const [carregando, setCarregando] = useState(true);
-
-  const handleLogout = () => {
-    logout();
-    window.location.href = '/';
-  };
-
-  const MAX_FILE_SIZE = 500 * 1024;
-
+  const [senhaCorreta, setSenhaCorreta] = useState(false);
+  const [erroSenha, setErroSenha] = useState("");
   const [nomeEdit, setNomeEdit] = useState("");
   const [emailEdit, setEmailEdit] = useState("");
   const [senhaEdit, setSenhaEdit] = useState("");
+
+  const MAX_FILE_SIZE = 500 * 1024;
 
   useEffect(() => {
     if (!currentUser) {
@@ -72,7 +68,6 @@ const Profile = () => {
 
   const bytesToBase64 = (bytes) => {
     if (!bytes || !bytes.length) return null;
-
     try {
       const byteArray = new Uint8Array(bytes);
       let binary = '';
@@ -88,7 +83,6 @@ const Profile = () => {
 
   const handleImagemChange = (e) => {
     const file = e.target.files[0];
-
     if (file) {
       if (file.size > MAX_FILE_SIZE) {
         setErro(`A imagem selecionada (${(file.size / 1024).toFixed(1)}KB) excede o limite de ${MAX_FILE_SIZE / 1024}KB. Por favor, escolha uma imagem menor ou comprima-a antes de enviar.`);
@@ -97,11 +91,9 @@ const Profile = () => {
         setNovaImagemPreview(null);
         return;
       }
-
       setNovaImagem(file);
       setErro("");
       setRemoverFoto(false);
-
       const reader = new FileReader();
       reader.onloadend = () => {
         setNovaImagemPreview(reader.result);
@@ -131,30 +123,31 @@ const Profile = () => {
       reader.onerror = error => reject(error);
     });
 
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
+
   const handleDeleteAccount = async () => {
     const confirmacao = window.confirm("Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.");
     if (!confirmacao) return;
-
     try {
       const response = await fetch(`${API_URL}/usuario/${id}`, {
         method: "DELETE",
       });
-
       if (!response.ok) {
         const data = await response.json();
         setErro(data.erro || "Erro ao excluir conta.");
         return;
       }
-
       await logout();
-
     } catch (error) {
       setErro("Erro ao excluir conta.");
       console.error(error);
     }
   };
 
-    const validarSenha = async (senha) => {
+  const validarSenha = async (senha) => {
     if (!senha) {
       setSenhaCorreta(false);
       setErroSenha("");
@@ -182,16 +175,13 @@ const Profile = () => {
   const handleSalvar = async () => {
     setIsLoading(true);
     setErro("");
-
     if (!senhaEdit || senhaEdit.trim() === "") {
       setErro("Digite sua senha para confirmar a alteração.");
       setIsLoading(false);
       return;
     }
-
     try {
       let base64Image = null;
-
       if (novaImagem) {
         try {
           base64Image = await toBase64(novaImagem);
@@ -202,14 +192,12 @@ const Profile = () => {
           return;
         }
       }
-
       const usuarioAtualizado = {
         nome: nomeEdit,
         email: emailEdit,
         senha: senhaEdit,
         imagemBase64: removerFoto ? "" : base64Image,
       };
-
       const response = await fetch(`${API_URL}/usuario/${id}`, {
         method: "PUT",
         headers: {
@@ -217,19 +205,16 @@ const Profile = () => {
         },
         body: JSON.stringify(usuarioAtualizado),
       });
-
       if (!response.ok) {
         const data = await response.json();
         setErro(data.erro || "Erro ao salvar alterações.");
         return;
       }
-
       const data = await response.json();
       setUsuario(data);
       setNomeEdit(data.nome || "");
       setEmailEdit(data.email || "");
       setSenhaEdit("");
-
       if (data.imagemPerfil) {
         const base64Image = bytesToBase64(data.imagemPerfil);
         setImagemPerfil(`data:image/jpeg;base64,${base64Image}`);
@@ -238,7 +223,6 @@ const Profile = () => {
       } else if (novaImagemPreview) {
         setImagemPerfil(novaImagemPreview);
       }
-
       setNovaImagem(null);
       setNovaImagemPreview(null);
       setRemoverFoto(false);
@@ -282,7 +266,7 @@ const Profile = () => {
     );
   }
 
-   return (
+  return (
     <div className={styles.container}>
       {erro && <div className={styles.error}>{erro}</div>}
 
@@ -474,3 +458,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
