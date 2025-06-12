@@ -158,6 +158,12 @@ const Profile = () => {
     setIsLoading(true);
     setErro("");
 
+    if (!senhaEdit || senhaEdit.trim() === "") {
+      setErro("Digite sua senha para confirmar a alteração.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       let base64Image = null;
 
@@ -175,7 +181,7 @@ const Profile = () => {
       const usuarioAtualizado = {
         nome: nomeEdit,
         email: emailEdit,
-        senha: usuario.senha, // passa a senha atual
+        senha: senhaEdit,
         imagemBase64: removerFoto ? "" : base64Image,
       };
 
@@ -195,6 +201,9 @@ const Profile = () => {
 
       const data = await response.json();
       setUsuario(data);
+      setNomeEdit(data.nome || "");
+      setEmailEdit(data.email || "");
+      setSenhaEdit("");
 
       if (data.imagemPerfil) {
         const base64Image = bytesToBase64(data.imagemPerfil);
@@ -319,7 +328,7 @@ const Profile = () => {
               {removerFoto && <p className={styles.removalHint}>A foto será removida ao salvar</p>}
             </div>
 
-            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center"}}>
+            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>
               <label>Nome:</label>
               <input
                 type="text"
@@ -337,7 +346,31 @@ const Profile = () => {
                 style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
               />
             </div>
-
+            <div className={styles.inputfield} style={{ display: "flex", alignItems: "center" }}>Add commentMore actions
+              <label>Senha:</label>
+              <input
+                type={mostrarSenha ? "text" : "password"}
+                value={senhaEdit}
+                onChange={(e) => setSenhaEdit(e.target.value)}
+                placeholder="Digite sua senha para confirmar"
+                required
+                style={{ marginRight: "8px" }}
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarSenha((prev) => !prev)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#666",
+                  fontSize: "1.1rem"
+                }}
+                tabIndex={-1}
+              >
+                <FontAwesomeIcon icon={mostrarSenha ? faEyeSlash : faEye} />
+              </button>
+            </div>
             <button onClick={handleLogout} className={styles.logoutButton}>
               <FontAwesomeIcon icon={faSignOutAlt} size="1x" color="#616161" /> Sair
             </button>
