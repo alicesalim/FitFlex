@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./redefinir.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
@@ -57,14 +59,37 @@ export default function Redefinir() {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
       <h2 className={styles.title}>Redefinir senha</h2>
-      <input
-        type="password"
-        placeholder="Nova senha"
-        value={novaSenha}
-        onChange={e => setNovaSenha(e.target.value)}
-        required
-        className={styles.input}
-      />
+      <div style={{ display: "flex", alignItems: "center" }}>Add commentMore actions
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="Nova senha"
+          value={novaSenha}
+          onChange={e => setNovaSenha(e.target.value)}
+          required
+          className={styles.input}
+          style={{ flexGrow: 1 }}
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className={styles.button}
+          style={{
+            marginLeft: "10px",
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            fontSize: "1.1rem",
+            color: "#555",
+            width: "20px",
+            height: "20px",
+          }}
+          aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+          title={showPassword ? "Ocultar senha" : "Mostrar senha"}
+        >
+          <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+        </button>
+      </div>
       <input
         type="password"
         placeholder="Confirmar senha"
