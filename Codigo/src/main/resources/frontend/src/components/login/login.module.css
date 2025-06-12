@@ -158,3 +158,15 @@
 }
 
 /* Restante do CSS mantém o mesmo */
+
+
+@media (max-width: 1200px) {
+  .imageContainer{
+    display: none;
+  }
+  .container{
+    border-radius: 16px;
+    width: 90vw;
+    padding: 12vw;
+  }
+}

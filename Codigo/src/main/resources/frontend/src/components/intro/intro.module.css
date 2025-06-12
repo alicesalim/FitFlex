@@ -202,3 +202,106 @@
     background: #FFFFFF;
     color: #616161;
 }
+
+
+/* Exemplo de media query para telas menores que 768px */
+@media (max-width: 768px) {
+    * {
+        font-size: 14px;
+    }
+
+    .green {
+    color: #86C019;
+    font-size: 2rem;
+}
+
+.container {
+    padding-top: 64px;
+}
+.title{
+    z-index: 3;
+    font-size: 2rem;
+    color: #212121;
+}
+
+.text {
+    margin: 50px 50px 0px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+}
+
+.subtitle {
+    z-index: 3;
+    color: #616161;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-weight: bold;
+}
+
+.cardimage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    /* Ajuste conforme necessário */
+    width: 100%;
+    overflow: hidden;
+}
+
+.bgRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50vw;
+    /* Reduzi para não ocupar toda a largura */
+    height: 50vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: 1;
+    opacity: 0.8;
+    /* Ajuste conforme necessário */
+    animation-delay: 0.5s;
+    /* Delay para animação alternada */
+    animation: ondaFadeInR-L 1.3s cubic-bezier(0.23, 1, 0.32, 1) 0.1s forwards;
+    right: 0;
+}
+
+.bgLeft {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50vw;
+    /* Reduzi para não ocupar toda a largura */
+    height: 50vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.8;
+    /* Ajuste conforme necessário */
+    animation: ondaFadeInL-R 1.3s cubic-bezier(0.23, 1, 0.32, 1) 0.1s forwards;
+    left: 0;
+}
+
+.back {
+    background-color: #F0F0F0;
+}
+}
+
+.carditem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background: #FFFFFF;
+    color: #616161;
+}
