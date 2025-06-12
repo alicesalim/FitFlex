@@ -3,11 +3,7 @@ import styles from './navbar.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faUtensils, faBook } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from '../../contexts/AuthContext';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { FaHome, FaSearch, FaUser, FaHeart, FaBook, FaSignOutAlt } from "react-icons/fa";
-import { AuthContext } from "../../contexts/AuthContext";
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4567";
 
@@ -18,14 +14,17 @@ const Navbar = () => {
   const [usuario, setUsuario] = useState(null);
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState("");
-   const navRef = useRef(null);
+  const navRef = useRef(null);
   const hamburguerRef = useRef(null);
 
-  useEffect(() => {
-    if (!currentUser) {
-      return;
-    }
 
+  const fecharMenu = () => {
+    if (navRef.current) {
+      navRef.current.classList.remove(styles.active);
+    }
+  };
+
+  useEffect(() => {
     const hamburguer = hamburguerRef.current;
     const nav = navRef.current;
 
@@ -37,6 +36,14 @@ const Navbar = () => {
       return () => {
         hamburguer.removeEventListener("click", handleClick);
       };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!currentUser) {
+      setUsuario(null);
+      setImagemPerfil(null);
+      return;
     }
 
     async function fetchUsuario() {
@@ -89,21 +96,23 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} ref={navRef}>
       <div className={styles.containerLogo}>
-        <Link to="/"> <img src="/assets/logo.png" alt="Logo" /> </Link>
+      <Link to="/" onClick={fecharMenu}> <img src="/assets/logo.png" alt="Logo" /> </Link>
       </div>
-      <button className={styles.hamburguer}></button>
+      <button className={styles.hamburguer} ref={hamburguerRef} aria-label="Abrir menu"></button>
       <ul className={styles.navLinks}>
         <NavLink
           to="/buscar"
           className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
+          onClick={fecharMenu}
         >
           Buscar Receitas
         </NavLink>
         <NavLink
           to="/analisar"
           className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
+          onClick={fecharMenu}
         >
           Análise de Produtos
         </NavLink>
@@ -111,12 +120,12 @@ const Navbar = () => {
         {isAdmin && (
           <>
             <li>
-              <NavLink to="/ingredientes"  className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
+            <NavLink to="/ingredientes" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link} onClick={fecharMenu}>
                 <FontAwesomeIcon icon={faUtensils} size="1x" color="#616161" /> Ingredientes
               </NavLink>
             </li>
             <li>
-              <NavLink to="/admin/receitas"  className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
+            <NavLink to="/admin/receitas" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link} onClick={fecharMenu}>
                 <FontAwesomeIcon icon={faBook} size="1x" color="#616161" /> Receitas
               </NavLink>
             </li>
@@ -126,7 +135,7 @@ const Navbar = () => {
         {currentUser ? (
           <>
             <li>
-              <Link to="/perfil" className={styles.link}>
+            <Link to="/perfil" className={styles.link} onClick={fecharMenu}>
                 <img
                   src={imagemPerfil || "/assets/semfoto.png"}
                   alt="Foto de perfil"
@@ -136,7 +145,7 @@ const Navbar = () => {
             </li>
           </>
         ) : (
-          <li><Link to="/login" className={styles.link}>Login</Link></li>
+          <li><Link to="/login" className={styles.link} onClick={fecharMenu}>Login</Link></li>
         )}
       </ul>
     </nav>

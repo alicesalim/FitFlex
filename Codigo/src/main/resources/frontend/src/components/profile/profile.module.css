@@ -201,14 +201,13 @@ label {
 
 .imageActions {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  top: 120px;
-
 }
 
 .imageUploadLabel {
@@ -323,4 +322,126 @@ label {
 .logoutButton:hover,
 .deleteButton:hover {
   transform: scale(1.05);
+}
+
+
+
+/* Adicione ao final do seu arquivo profile.module.css */
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 70px 0 10px 0;
+    padding: 16px 4vw 16px 4vw;
+    gap: 16px;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .info h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .imagem,
+  .imagePreview,
+  .currentImageContainer {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .modalContent {
+    padding: 16px 8px;
+    max-width: 98vw;
+    width: 98vw;
+    min-width: unset;
+    border-radius: 12px;
+  }
+
+  .modalContent h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .imageUploadContainer {
+    margin-bottom: 16px;
+  }
+
+  .saveButton,
+  .cancelButton,
+  .logoutButton,
+  .deleteButton {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 90px;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .buttonGroup {
+    display: flex;
+    justify-content: flex-start; /* Alinha à esquerda */
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 0;
+    /* Desloca os botões para baixo */
+  }
+
+  .saveButton,
+  .cancelButton {
+    margin-left: 0;
+    margin-right: 0;
+    display: inline-block;
+    min-width: 90px;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .inputfield {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    font-size: 15px;
+    padding: 10px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  label {
+    font-size: 15px;
+    margin-bottom: 2px;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .error {
+    font-size: 13px;
+    padding: 8px 8px;
+  }
 }
