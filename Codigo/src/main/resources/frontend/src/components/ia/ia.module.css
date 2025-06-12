@@ -69,7 +69,7 @@
 .imagemfixa {
   position: relative;
   right: 0;
-  width: 1200px; /* diminui um pouco */
+  width: 70vw; /* diminui um pouco */
   height: auto;
  align-items: flex-start;
   pointer-events: none;
